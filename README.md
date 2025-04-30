@@ -1,31 +1,32 @@
-# AOMania Calculadoras y Modificadores
+# AOMania Calculadoras y Modificadores 📊
 
-[![AOMania](https://aomania.net/images/logo.png)](https://aomania.net/)
+[![AOMania](https://raw.githubusercontent.com/scorpio21/Vidas/main/imagen/logo.png)](https://aomania.net/)
 
 **AOMania Calculadoras** es un conjunto de herramientas web desarrolladas para la comunidad de [AOMania](https://aomania.net/), un servidor original del clásico juego argentino **Argentum Online**. Este proyecto permite a los jugadores calcular de manera precisa y rápida valores clave de sus personajes, como vida, maná, domar y consultar modificadores de clase, todo desde una interfaz moderna, minimalista y responsiva.
 
 ---
 
-## Enlaces Útiles
-- [Sitio oficial de AOMania](https://aomania.net/)
-- [Discord AOMania](https://discord.gg/argentinaonline)
-- [Wiki AOMania](https://wiki.aomania.net/)
+## Enlaces Útiles 🌐
+- 🌐 [Sitio oficial de AOMania](https://aomania.net/)
+- 💬 [Discord AOMania](https://discord.gg/argentinaonline)
+- 📘 [Wiki AOMania](https://wiki.aomania.net/)
+- ![GitHub](https://img.shields.io/badge/GitHub-Repositorio-181717?logo=github&style=flat-square) [Repositorio en GitHub](https://github.com/scorpio21/Vidas)
 
 ---
 
-## Tabla de Contenidos
-- [Características](#características)
-- [¿Para qué sirve este proyecto?](#para-qué-sirve-este-proyecto)
-- [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Instalación y Uso](#instalación-y-uso)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Créditos y Licencia](#créditos-y-licencia)
-- [Sección Especial: Preguntas Frecuentes (FAQ)](#sección-especial-preguntas-frecuentes-faq)
-- [Cómo preparar el proyecto para probarlo](#cómo-preparar-el-proyecto-para-probarlo)
+## Tabla de Contenidos 📚
+- 🏆 [Características](#características)
+- 🎯 [¿Para qué sirve este proyecto?](#para-qué-sirve-este-proyecto)
+- 🛠️ [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- 🚀 [Instalación y Uso](#instalación-y-uso)
+- 📁 [Estructura del Proyecto](#estructura-del-proyecto)
+- 📜 [Créditos y Licencia](#créditos-y-licencia)
+- ❓ [Sección Especial: Preguntas Frecuentes (FAQ)](#sección-especial-preguntas-frecuentes-faq)
+- 🧪 [Cómo preparar el proyecto para probarlo](#cómo-preparar-el-proyecto-para-probarlo)
 
 ---
 
-## Características
+## Características 🌟
 - **Calculadora de Vida**: Calcula la vida máxima y los incrementos por nivel según clase, constitución y nivel del personaje.
 - **Calculadora de Maná**: Calcula el maná máximo según clase, inteligencia y nivel del personaje.
 - **Calculadora de Domar**: Determina la habilidad necesaria para domar criaturas según clase y carisma.
@@ -37,7 +38,7 @@
 
 ---
 
-## ¿Para qué sirve este proyecto?
+## ¿Para qué sirve este proyecto? 🤔
 Esta herramienta está pensada para jugadores, administradores y desarrolladores de **AOMania** y otros servidores de **Argentum Online** que deseen:
 - Optimizar la creación y evolución de personajes.
 - Consultar rápidamente los modificadores y estadísticas de cada clase.
@@ -47,7 +48,7 @@ Esta herramienta está pensada para jugadores, administradores y desarrolladores
 
 ---
 
-## Tecnologías Utilizadas
+## Tecnologías Utilizadas 💻
 - **PHP** (7.x+): Backend y lógica de negocio.
 - **HTML5 / CSS3**: Estructura y estilos modernos.
 - **JavaScript**: Interactividad y animaciones para una experiencia dinámica.
@@ -56,8 +57,7 @@ Esta herramienta está pensada para jugadores, administradores y desarrolladores
 
 ---
 
-## Instalación y Uso
-
+## Instalación y Uso 📦
 ### 1. Requisitos
 - Servidor web local (XAMPP, WAMP, Laragon, etc.)
 - PHP 7.x o superior
@@ -101,7 +101,7 @@ vidas/
 
 ---
 
-## Cómo preparar el proyecto para probarlo
+## Cómo preparar el proyecto para probarlo 🚀
 
 1. **Clona o descarga este repositorio** en la carpeta pública de tu servidor local (por ejemplo, `htdocs` en XAMPP).
 2. **Asegúrate de copiar:**
@@ -120,7 +120,7 @@ vidas/
 
 ---
 
-## Sección Especial: Preguntas Frecuentes (FAQ)
+## Sección Especial: Preguntas Frecuentes (FAQ) ❓
 
 ### ❓ ¿Por qué mis cálculos no coinciden exactamente con el AOMania oficial?
 - La calculadora utiliza las mismas tablas y fórmulas que AOMania, pero si notas alguna diferencia, revisa que estés usando los mismos valores y criaturas. Si encuentras errores, ¡avísanos para corregirlo!
@@ -142,7 +142,7 @@ vidas/
 
 ---
 
-## Créditos y Licencia
+## Créditos y Licencia 📜
 - Proyecto original: **AOMania** (https://aomania.net/)
 - Inspirado en el clásico **Argentum Online**
 - Desarrollado por la comunidad para la comunidad
@@ -156,9 +156,9 @@ vidas/
 
 ---
 
-## Contacto y Soporte
+## Contacto y Soporte 📲
 ¿Dudas, sugerencias o quieres contribuir? Puedes abrir un issue en GitHub o contactar a la administración de AOMania en su web oficial.
 
 ---
 
-¡Gracias por apoyar el desarrollo de herramientas para la comunidad AOMania y Argentum Online!
+¡Gracias por apoyar el desarrollo de herramientas para la comunidad AOMania y Argentum Online! 🙏
