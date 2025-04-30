@@ -1,0 +1,46 @@
+# Ignorar dependencias de Composer si no usas paquetes externos
+/vendor/
+
+# Archivos de caché y temporales
+.phpunit.result.cache
+*.log
+*.tmp
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración locales (ajusta si usas .env)
+.env
+
+# Ignorar imágenes de ejemplo grandes o personales (ajusta según tu uso)
+# /imagen/*.psd
+# /imagen/*.xcf
+
+# Ignorar backups y archivos personales
+*~
+*.bak
+
+# No ignores la carpeta imagen ni los logos, solo fuentes editables o temporales
+!/imagen/
+!/imagen/logo.png
+!/imagen/logo1.png
+!/imagen/helios.bmp
+
+# No ignores los archivos principales del proyecto
+!/css/
+!/css/styles.min.css
+!/src/
+!/src/functions.php
+!/README.md
+!/index.php
+!/vida.php
+!/mana.php
+!/domar.php
+!/modificadores.php
+!/modificadores-lista.php
+!/api_modificadores.php
+!/criatura.php
+!/criaturas_aomania.php
+!/tabla_exp_aomania.php
+!/csrf_token.php
