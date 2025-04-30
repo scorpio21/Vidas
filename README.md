@@ -147,6 +147,7 @@ vidas/
 - Inspirado en el clásico **Argentum Online**
 - Desarrollado por la comunidad para la comunidad
 - Mejoras visuales y scripts: Helios, Scorpio21 y colaboradores
+- **Colaborador destacado:** @scorpio21 (https://github.com/scorpio21)
 
 **Licencia:** Este proyecto es de código abierto bajo la licencia MIT. Puedes usarlo, modificarlo y compartirlo citando la autoría original.
 
