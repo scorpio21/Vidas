@@ -1,5 +1,16 @@
 # AOMania Calculadoras y Modificadores 📊
 
+<p align="center">
+  <img src="https://img.shields.io/badge/PHP-7.x+-777BB4?logo=php&logoColor=white&style=for-the-badge" alt="PHP">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&style=for-the-badge" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white&style=for-the-badge" alt="CSS3">
+  <img src="https://img.shields.io/badge/Bootstrap-563D7C?logo=bootstrap&logoColor=white&style=for-the-badge" alt="Bootstrap">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Font%20Awesome-528DD7?logo=fontawesome&logoColor=white&style=for-the-badge" alt="Font Awesome">
+  <img src="https://img.shields.io/badge/License-MIT-green?logo=opensourceinitiative&logoColor=white&style=for-the-badge" alt="MIT License">
+  <img src="https://img.shields.io/badge/Estado-Activo-brightgreen?style=for-the-badge" alt="Estado: Activo">
+</p>
+
 [![AOMania](https://raw.githubusercontent.com/scorpio21/Vidas/main/imagen/logo.png)](https://aomania.net/)
 
 **AOMania Calculadoras** es un conjunto de herramientas web desarrolladas para la comunidad de [AOMania](https://aomania.net/), un servidor original del clásico juego argentino **Argentum Online**. Este proyecto permite a los jugadores calcular de manera precisa y rápida valores clave de sus personajes, como vida, maná, domar y consultar modificadores de clase, todo desde una interfaz moderna, minimalista y responsiva.
@@ -17,7 +28,7 @@
 ## Tabla de Contenidos 📚
 - 🏆 [Características](#características)
 - 🎯 [¿Para qué sirve este proyecto?](#para-qué-sirve-este-proyecto)
-- 🛠️ [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- 🛠️ [Tecnologías y Lenguajes Utilizados](#tecnologías-y-lenguajes-utilizados)
 - 🚀 [Instalación y Uso](#instalación-y-uso)
 - 📁 [Estructura del Proyecto](#estructura-del-proyecto)
 - 📜 [Créditos y Licencia](#créditos-y-licencia)
@@ -48,12 +59,15 @@ Esta herramienta está pensada para jugadores, administradores y desarrolladores
 
 ---
 
-## Tecnologías Utilizadas 💻
-- **PHP** (7.x+): Backend y lógica de negocio.
-- **HTML5 / CSS3**: Estructura y estilos modernos.
-- **JavaScript**: Interactividad y animaciones para una experiencia dinámica.
-- **Font Awesome**: Iconografía profesional.
-- **Bootstrap** (parcial): Utilizado para algunos estilos y clases responsivas.
+## Tecnologías y Lenguajes Utilizados 💻
+
+Este proyecto ha sido desarrollado principalmente en **PHP** para la lógica de backend y procesamiento de formularios. La interfaz y la experiencia de usuario se han construido utilizando **HTML5**, **CSS3** (incluyendo Bootstrap para estilos responsivos), y **JavaScript** para la interactividad y animaciones. Además, se utiliza **Font Awesome** para iconos profesionales.
+
+- **PHP** (7.x+): Backend, lógica de negocio, procesado de formularios y cálculos.
+- **HTML5**: Estructura de la interfaz web.
+- **CSS3** + **Bootstrap**: Estilos visuales, responsividad y modo oscuro.
+- **JavaScript**: Interactividad, animaciones y mejoras visuales.
+- **Font Awesome**: Iconografía moderna.
 
 ---
 
