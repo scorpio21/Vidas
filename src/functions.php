@@ -1,7 +1,18 @@
 <?php
+// =============================================
+// Funciones auxiliares para la Calculadora AOMania
+// Incluye utilidades para clases, modificadores, vida, maná, domar, etc.
+// =============================================
 
-// Centralización de las clases válidas
+// ===================
+// Clases y modificadores
+// ===================
+/**
+ * Devuelve un array asociativo de clases válidas
+ * @return array
+ */
 function getClasesValidas() {
+    // Centralización de las clases válidas
     return [
         'MAGO' => 'Mago',
         'CLERIGO' => 'Clerigo',
@@ -19,124 +30,18 @@ function getClasesValidas() {
     ];
 }
 
-function calcularMana($clase, $inteligencia, $nivel)
-{
-    $maxMana = 0;
-    $minMana = 0;
-    $incrementoMana = 0;
-    $clase = strtoupper($clase);
-
-    // Calculo base según clase (Visual Basic 6.0 logic)
-    if ($clase === 'MAGO' || $clase === 'BRUJO') {
-        $maxMana = 100 + intdiv($inteligencia, 3);
-        $minMana = 101;
-    } elseif (
-        $clase === 'CLERIGO' || $clase === 'DRUIDA' || $clase === 'BARDO' ||
-        $clase === 'ASESINO' || $clase === 'GLADIADOR MAGICO'
-    ) {
-        $minMana = 50;
-        $maxMana = 50;
-    } else {
-        $minMana = 0;
-        $maxMana = 0;
-    }
-
-    // IncrementoMana según clase
-    switch ($clase) {
-        case 'MAGO':
-            $incrementoMana = $inteligencia * 3;
-            break;
-        case 'BRUJO':
-            $incrementoMana = $inteligencia * 2.7;
-            break;
-        case 'CLERIGO':
-        case 'DRUIDA':
-        case 'BARDO':
-            $incrementoMana = $inteligencia * 2;
-            break;
-        case 'PALADIN':
-        case 'ASESINO':
-            $incrementoMana = $inteligencia;
-            break;
-        default:
-            $incrementoMana = 0;
-    }
-
-    // Cálculo final de mana según clase y nivel
-    if ($clase === 'PALADIN' || $clase === 'ASESINO') {
-        if ($nivel >= 2) {
-            $minMana = $minMana + $inteligencia * ($nivel - 1);
-            $maxMana = $maxMana + $inteligencia * ($nivel - 1);
-        }
-    }
-    if (
-        $clase === 'BRUJO' || $clase === 'CLERIGO' || $clase === 'DRUIDA' ||
-        $clase === 'BARDO' || $clase === 'MAGO'
-    ) {
-        $minMana = $minMana + $incrementoMana * ($nivel - 1);
-        $maxMana = $maxMana + $incrementoMana * ($nivel - 1);
-    }
-
-    return ['minMana' => $minMana, 'maxMana' => $maxMana, 'incrementoMana' => $incrementoMana];
-}
-
-function calcularSkillDomar($clase, $carisma)
-{
-    $skillBase = 50;
-    $factorClase = 1.0;
-
-    switch ($clase) {
-        case 'MAGO':
-            $factorClase = 1.2;
-            break;
-        case 'BRUJO':
-            $factorClase = 1.1;
-            break;
-        case 'CLERIGO':
-        case 'DRUIDA':
-            $factorClase = 1.5;
-            break;
-        case 'BARDO':
-            $factorClase = 1.3;
-            break;
-        case 'ASESINO':
-            $factorClase = 1.4;
-            break;
-        case 'GUERRERO':
-            $factorClase = 1.0;
-            break;
-        case 'PALADIN':
-            $factorClase = 1.2;
-            break;
-        case 'PIRATA':
-            $factorClase = 1.1;
-            break;
-        case 'ARQUERO':
-            $factorClase = 1.0;
-            break;
-        case 'BANDIDO':
-            $factorClase = 1.1;
-            break;
-        case 'LADRON':
-            $factorClase = 1.2;
-            break;
-        case 'TRABAJADOR':
-            $factorClase = 0.9;
-            break;
-        default:
-            $factorClase = 1.0;
-    }
-
-    $skillNecesario = $skillBase + ($carisma * $factorClase);
-
-    if ($skillNecesario > 100) {
-        $skillNecesario = 100;
-    }
-
-    return $skillNecesario;
-}
-
+// ===================
+// Vida y maná
+// ===================
+/**
+ * Calcula la vida máxima y mínima según clase, constitución y nivel
+ * @param string $clase
+ * @param int $constitucion
+ * @param int $nivel
+ * @return array|null
+ */
 function calcularVida($clase, $constitucion, $nivel) {
+    // Calcula la vida máxima y mínima según clase, constitución y nivel
     $clase = strtoupper($clase);
     $constitucion = intval($constitucion);
     $nivel = intval($nivel);
@@ -151,6 +56,7 @@ function calcularVida($clase, $constitucion, $nivel) {
     $AumentoMinHP = 4;
     $AumentoMaxHP = intdiv($constitucion, 2);
 
+    // Calcula el aumento de vida según clase y constitución
     switch ($clase) {
         case "GUERRERO":
             switch ($constitucion) {
@@ -263,9 +169,11 @@ function calcularVida($clase, $constitucion, $nivel) {
             break;
     }
 
+    // Calcula la vida máxima y mínima según nivel
     $minimoHP = $minimoHP + $AumentoMinHP * ($nivel - 1);
     $maximoHP = $maximoHP + $AumentoMaxHP * ($nivel - 1);
 
+    // Calcula la vida media y el aumento medio
     $medioHP = intdiv($maximoHP + $minimoHP, 2);
     $incMedio = intdiv($AumentoMaxHP + $AumentoMinHP, 2);
 
@@ -278,4 +186,154 @@ function calcularVida($clase, $constitucion, $nivel) {
         'aumentoMedio' => $incMedio
     ];
 }
-?>
+
+/**
+ * Calcula el maná máximo y mínimo según clase, inteligencia y nivel
+ * @param string $clase
+ * @param int $inteligencia
+ * @param int $nivel
+ * @return array|null
+ */
+function calcularMana($clase, $inteligencia, $nivel)
+{
+    // Calcula el maná máximo y mínimo según clase, inteligencia y nivel
+    $maxMana = 0;
+    $minMana = 0;
+    $incrementoMana = 0;
+    $clase = strtoupper($clase);
+
+    // Calculo base según clase (Visual Basic 6.0 logic)
+    if ($clase === 'MAGO' || $clase === 'BRUJO') {
+        $maxMana = 100 + intdiv($inteligencia, 3);
+        $minMana = 101;
+    } elseif (
+        $clase === 'CLERIGO' || $clase === 'DRUIDA' || $clase === 'BARDO' ||
+        $clase === 'ASESINO' || $clase === 'GLADIADOR MAGICO'
+    ) {
+        $minMana = 50;
+        $maxMana = 50;
+    } else {
+        $minMana = 0;
+        $maxMana = 0;
+    }
+
+    // IncrementoMana según clase
+    switch ($clase) {
+        case 'MAGO':
+            $incrementoMana = $inteligencia * 3;
+            break;
+        case 'BRUJO':
+            $incrementoMana = $inteligencia * 2.7;
+            break;
+        case 'CLERIGO':
+        case 'DRUIDA':
+        case 'BARDO':
+            $incrementoMana = $inteligencia * 2;
+            break;
+        case 'PALADIN':
+        case 'ASESINO':
+            $incrementoMana = $inteligencia;
+            break;
+        default:
+            $incrementoMana = 0;
+    }
+
+    // Cálculo final de mana según clase y nivel
+    if ($clase === 'PALADIN' || $clase === 'ASESINO') {
+        if ($nivel >= 2) {
+            $minMana = $minMana + $inteligencia * ($nivel - 1);
+            $maxMana = $maxMana + $inteligencia * ($nivel - 1);
+        }
+    }
+    if (
+        $clase === 'BRUJO' || $clase === 'CLERIGO' || $clase === 'DRUIDA' ||
+        $clase === 'BARDO' || $clase === 'MAGO'
+    ) {
+        $minMana = $minMana + $incrementoMana * ($nivel - 1);
+        $maxMana = $maxMana + $incrementoMana * ($nivel - 1);
+    }
+
+    return ['minMana' => $minMana, 'maxMana' => $maxMana, 'incrementoMana' => $incrementoMana];
+}
+
+// ===================
+// Domar
+// ===================
+/**
+ * Calcula el skill necesario para domar según clase y carisma
+ * @param string $clase
+ * @param int $carisma
+ * @return int
+ */
+function calcularSkillDomar($clase, $carisma)
+{
+    // Calcula el skill necesario para domar según clase y carisma
+    $skillBase = 50;
+    $factorClase = 1.0;
+
+    switch ($clase) {
+        case 'MAGO':
+            $factorClase = 1.2;
+            break;
+        case 'BRUJO':
+            $factorClase = 1.1;
+            break;
+        case 'CLERIGO':
+        case 'DRUIDA':
+            $factorClase = 1.5;
+            break;
+        case 'BARDO':
+            $factorClase = 1.3;
+            break;
+        case 'ASESINO':
+            $factorClase = 1.4;
+            break;
+        case 'GUERRERO':
+            $factorClase = 1.0;
+            break;
+        case 'PALADIN':
+            $factorClase = 1.2;
+            break;
+        case 'PIRATA':
+            $factorClase = 1.1;
+            break;
+        case 'ARQUERO':
+            $factorClase = 1.0;
+            break;
+        case 'BANDIDO':
+            $factorClase = 1.1;
+            break;
+        case 'LADRON':
+            $factorClase = 1.2;
+            break;
+        case 'TRABAJADOR':
+            $factorClase = 0.9;
+            break;
+        default:
+            $factorClase = 1.0;
+    }
+
+    $skillNecesario = $skillBase + ($carisma * $factorClase);
+
+    if ($skillNecesario > 100) {
+        $skillNecesario = 100;
+    }
+
+    return $skillNecesario;
+}
+
+// ===================
+// Utilidades varias
+// ===================
+/**
+ * Devuelve la vida máxima absoluta para una clase
+ * @param string $clase
+ * @return int
+ */
+function vidaMaximaAbsoluta($clase) {
+    // Calcula la vida máxima absoluta real para una clase
+    $resultado = calcularVida($clase, 21, 299);
+    return $resultado ? $resultado['maximoHP'] : 0;
+}
+
+// Aquí puedes añadir más funciones auxiliares según crezca el proyecto

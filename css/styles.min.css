@@ -1,3 +1,8 @@
+/* =============================================
+   Hoja de estilos principal para AOMania
+   Centraliza todos los estilos personalizados y clases para el proyecto
+   ============================================= */
+
 /* =========================
    RESET Y ESTILOS BASE
    ========================= */
@@ -348,6 +353,10 @@ input:focus, select:focus, textarea:focus {
   line-height: 22px;
   z-index: 2;
   text-shadow: 0 1px 2px #000c;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: visible;
 }
 .vida-bar::before {
   content: '';
@@ -358,9 +367,51 @@ input:focus, select:focus, textarea:focus {
   left: 0; top: 0;
   z-index: 1;
 }
-.vida-min::before { background: linear-gradient(90deg, #3ecf4c, #7afc6a); }
-.vida-med::before { background: linear-gradient(90deg, #ffd900, #ffe066); }
-.vida-max::before { background: linear-gradient(90deg, #e03c3c, #ff7b7b); }
+.vida-min::before { background: linear-gradient(90deg, #34c759 0%, #8bc34a 100%); }
+.vida-med::before { background: linear-gradient(90deg, #ffd700 0%, #ff9900 100%); }
+.vida-max::before { background: linear-gradient(90deg, #ff3737 0%, #ff3737 100%); }
+
+/* Barras de maná */
+.mana-bar {
+  position: relative;
+  width: 220px;
+  height: 22px;
+  background: #0a2540;
+  border-radius: 11px;
+  overflow: hidden;
+  margin-right: 10px;
+  box-shadow: 0 1px 3px #0004;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+.mana-bar span {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 0.98em;
+  line-height: 22px;
+  z-index: 2;
+  text-shadow: 0 1px 2px #000c;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: visible;
+}
+.mana-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: calc((var(--val,0) / var(--max,1)) * 100%);
+  position: absolute;
+  left: 0; top: 0;
+  z-index: 1;
+}
+.mana-min::before { background: linear-gradient(90deg, #2196f3 0%, #00bfff 100%); }
+.mana-max::before { background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%); }
+.mana-flex-col { display: flex; flex-direction: column; gap: 8px; margin: 10px 0 18px 0; align-items: center; }
+.mana-flex { display: flex; align-items: center; justify-content: center; }
+.mt-mana { margin-top: 6px; }
 
 /* Botones principales */
 .btn-primary, .btn-success, .btn-secondary {
@@ -404,6 +455,85 @@ input:focus, select:focus, textarea:focus {
     transform: translateY(-2px) scale(1.04);
 }
 
+/* Migrados desde criatura.php */
+.boxresult_vida {margin-top: 40px !important;padding: 20px;border: 1px solid #ccc;border-radius: 5px;box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);display: flex;flex-direction: column;background-color: #2E2E2E;color: white;font-weight: 600;max-width: 400px;margin-left: auto;margin-right: auto;}
+.result_vida-title {font-size: 18px;margin-bottom: 10px;color: white;}
+
+/* Migrados desde criatura.php (echo y <style>) */
+.resultado-oculto {opacity: 0;}
+.res-destacado {font-size: 1.3em; color: #ffd900;}
+.res-verde {color: #43e97b;}
+.res-grande {font-size: 1.3em;}
+.fondo-oscuro {background: #222;}
+.res-amplio {font-size: 1.2em; color: #ffd900;}
+.res-mediano {font-size: 1.1em;}
+.barra-progreso-wrap {width: 100%; margin: 10px 0 0 0;}
+.barra-progreso-fondo {background: #444; border-radius: 8px; width: 100%; height: 18px; overflow: hidden;}
+.barra-progreso-real {background: #43e97b; height: 100%; width: 0%; transition: width 1s;}
+.progreso-texto {font-size: 0.95em; opacity: 0.8;}
+.form-criatura-container {max-width: 340px; margin: 18px auto 0 auto;}
+.icon-exp {color: #ff9800;}
+
+/* Migrados desde mana.php */
+.flex-clase {display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.label-clase {font-weight:500;}
+.icon-clase {color:#2196f3;}
+.select-clase {max-width:180px;}
+.form-mana-container {max-width:340px;margin:18px auto 0 auto;}
+.label-inteligencia, .label-nivel {font-weight:500;}
+.icon-inteligencia {color:#43e97b;}
+.icon-nivel {color:#ffd900;}
+
+/* Migrados desde index.php */
+.main-card {max-width: 600px; margin: 40px auto 0 auto; border-radius: 22px;}
+.main-header {background:rgba(0,0,0,0.7); color:#fff; border-radius:22px 22px 0 0; padding:2em 0;}
+.nav-pills .nav-link.active {background: linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d); color:#fff;}
+.nav-pills .nav-link {font-size:1.2em;}
+.helios-img-footer:hover {transform: scale(1.18) rotate(-8deg);box-shadow:0 4px 18px #ffb30099, 0 1px 10px #0007;cursor:pointer;}
+
+/* Migrados desde domar.php */
+.form-domar-container {max-width:340px;margin:18px auto 0 auto;}
+.label-carisma, .label-criatura {font-weight:500;}
+.icon-carisma {color:#ffd900;}
+.icon-criatura {color:#e03c3c;}
+
+/* Migrados desde vida.php */
+.main-vida {max-width: 500px; margin: 40px auto 0 auto;}
+.icon-constitucion {color:#43e97b;}
+#volver-menu {margin-top:8px;}
+.texto-opaco {opacity:0.75;font-size:0.9em;}
+.texto-pequeño {font-size:0.93em;}
+
+/* Migrados desde modificadores.php y modificadores-lista.php */
+.main-500 {max-width: 500px; margin: 40px auto 0 auto;}
+.card-480 {max-width: 480px; margin: 0 auto; border-radius: 16px;}
+.texto-centro-mb {width:100%;text-align:center;margin-bottom:16px;}
+.form-bg-blur {background:rgba(255,255,255,0.05);padding:14px 8px;border-radius:10px;}
+.label-bold {font-weight:500;}
+
+/* Estilos para agrupadores de barras de vida en vida.php */
+.vida-flex-col {margin: 1.5em 0 1em 0; display: flex; flex-direction: column; align-items: center;}
+.vida-flex {display:flex;gap:12px;align-items:center;justify-content:center;}
+.mt-vida {margin-top:6px;}
+
+/* Selector de criatura SOLO en criatura.php */
+.form-criatura-container #criatura.form-control {
+  color: #fff !important;
+  background: #222 !important;
+  border-color: #888 !important;
+  font-weight: 600;
+}
+
+/* Elimina el estilo global para #criatura */
+#criatura.form-control, #criatura.select2-selection--single,
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-results__option {
+  background-color: initial !important;
+  border-color: initial !important;
+  color: initial !important;
+  font-weight: initial !important;
+}
+
 /* Modo oscuro automático */
 @media (prefers-color-scheme: dark) {
   body {
@@ -439,3 +569,9 @@ input:focus, select:focus, textarea:focus {
     border-color: #33394a !important;
   }
 }
+
+.enlace-nowrap {
+  white-space: nowrap;
+}
+
+.form-modificadores-container {max-width:340px;margin:18px auto 0 auto;}

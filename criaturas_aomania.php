@@ -1,4 +1,8 @@
 <?php
+// =============================================
+// Archivo de datos de criaturas para AOMania
+// Contiene la lista de criaturas y sus características para la calculadora
+// =============================================
 // Lista completa de NPCs de AOMania con experiencia real según la calculadora oficial
 // Fuente: script de AOMania (multiplicador de servidor = 10)
 return [

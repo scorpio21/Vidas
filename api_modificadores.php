@@ -1,9 +1,19 @@
 <?php
-// Devuelve los modificadores por clase en HTML para AJAX
+// =============================================
+// API de Modificadores para AOMania
+// Devuelve los modificadores de una clase en formato HTML para AJAX
+// =============================================
+// Incluir archivo de funciones
 include_once 'src/functions.php';
+
+// Establecer tipo de contenido de la respuesta
 header('Content-Type: text/html; charset=utf-8');
 
+// =============================================
+// Función para obtener modificadores por clase
+// =============================================
 function getModificadoresPorClase() {
+    // Definir modificadores por clase
     return [
         'GUERRERO' => [
             'Evasión' => 1,
@@ -138,36 +148,45 @@ function getModificadoresPorClase() {
     ];
 }
 
+// =============================================
+// Obtener clase desde GET o POST
+// =============================================
 $clase = isset($_GET['clase']) ? strtoupper($_GET['clase']) : '';
 $modificadoresClase = [];
 if ($clase) {
+    // Obtener modificadores de la clase seleccionada
     $mods = getModificadoresPorClase();
     if (isset($mods[$clase])) {
         $modificadoresClase = $mods[$clase];
     }
 }
 
+// =============================================
+// Mostrar selector de clase
+// =============================================
 // Mostrar solo el selector de clase, sin form ni div extra
 $clases = getClasesValidas();
-echo '<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">';
+echo '<div class="flex-clase mb-3">';
 echo '<label for="clase" class="form-label mb-0">Clase</label>';
-echo '<select name="clase" id="clase" class="form-control" required style="max-width:180px;">';
+echo '<select name="clase" id="clase" class="form-control select-clase" required>';
 echo '<option value="">--Selecciona--</option>';
 foreach ($clases as $key=>$nombre) {
     $selected = ($key === $clase) ? ' selected' : '';
     echo '<option value="'.$key.'"'.$selected.'>'.$nombre.'</option>';
 }
 echo '</select>';
-echo '<a href="index.php" class="btn btn-secondary btn-sm" style="white-space:nowrap;"><i class="fas fa-arrow-left"></i> Volver al menú principal</a>';
+echo '<a href="index.php" class="btn btn-secondary btn-sm enlace-nowrap"><i class="fas fa-arrow-left"></i> Volver al menú principal</a>';
 echo '</div>';
 
-// Ahora, si hay clase seleccionada, mostrar modificadores o mensaje
+// =============================================
+// Mostrar modificadores o mensaje
+// =============================================
 if ($clase && !empty($modificadoresClase)) {
     // Contenedor para alinear los modificadores debajo del selector
-    echo '<div style="max-width:340px;margin:18px auto 0 auto;">';
+    echo '<div class="form-modificadores-container">';
     foreach($modificadoresClase as $nombre=>$valor) {
         echo '<div class="mb-2 row align-items-center">';
-        echo '<label class="col-7 col-form-label" style="font-weight:500;">'.htmlspecialchars($nombre).'</label>';
+        echo '<label class="col-7 col-form-label label-bold">'.htmlspecialchars($nombre).'</label>';
         echo '<input type="text" class="form-control col-5" readonly value="'.htmlspecialchars($valor).'">';
         echo '</div>';
     }

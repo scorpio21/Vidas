@@ -1,3 +1,8 @@
+<!-- =============================================
+Este archivo README describe la estructura, uso y propósito del proyecto AOMania.
+Incluye instrucciones para desarrolladores y usuarios finales.
+============================================= -->
+
 # AOMania Calculadoras y Modificadores 📊
 
 <p align="center">
@@ -14,6 +19,25 @@
 [![AOMania](https://raw.githubusercontent.com/scorpio21/Vidas/main/imagen/logo.png)](https://aomania.net/)
 
 **AOMania Calculadoras** es un conjunto de herramientas web desarrolladas para la comunidad de [AOMania](https://aomania.net/), un servidor original del clásico juego argentino **Argentum Online**. Este proyecto permite a los jugadores calcular de manera precisa y rápida valores clave de sus personajes, como vida, maná, domar y consultar modificadores de clase, todo desde una interfaz moderna, minimalista y responsiva.
+
+---
+
+## Cambios recientes (2025-05)
+
+### Mejoras en Calculadora de Domar
+- El mensaje de resultado ahora aparece justo debajo del título "Domar" para mayor visibilidad.
+- Corregido el flujo de procesamiento del formulario para que el mensaje se genere y muestre correctamente.
+- Validación de clase robusta: ahora todas las clases listadas en el sistema son válidas y la selección es insensible a mayúsculas/minúsculas.
+- Solucionado el error de variable indefinida `$clasesValidas` y `$resultado`.
+- Mejoras de accesibilidad y experiencia de usuario en el formulario de domar.
+
+### Estilos y visuales
+- El selector de criaturas en `criatura.php` ahora tiene texto blanco y fondo oscuro, con ancho fijo, para mayor contraste y uniformidad visual.
+- Los estilos de selectores son específicos por página para evitar conflictos visuales.
+
+### Código y estructura
+- Refactorizado el orden de inclusión y procesamiento en `domar.php` para evitar errores y warnings de PHP.
+- Añadidos logs temporales para depuración de formularios (ya retirados en producción).
 
 ---
 
@@ -91,15 +115,26 @@ vidas/
 │   ├── helios.bmp             # Avatar Helios para footer
 │   └── ...                    # Otros gráficos
 ├── src/
-│   └── functions.php          # Funciones reutilizables (cálculos, clases, modificadores)
+│   ├── functions.php          # Funciones reutilizables (cálculos, clases, modificadores)
+│   ├── criaturas_domables.php # Lista de criaturas domables para domar.php
+│   └── ...                    # Otros scripts auxiliares
 ├── vida.php                   # Calculadora de vida
 ├── mana.php                   # Calculadora de maná
 ├── domar.php                  # Calculadora de domar
 ├── modificadores.php          # Consulta de modificadores por clase (AJAX)
 ├── modificadores-lista.php    # Consulta de modificadores en modo lista
+├── modificadores_tabla.php    # Tabla de modificadores en modo tabla
 ├── api_modificadores.php      # Endpoint AJAX para modificadores
 ├── criatura.php               # Calculadora de experiencia por criatura (NPC)
+├── criaturas_aomania.php      # Lista de criaturas y experiencia para criatura.php
+├── tabla_exp_aomania.php      # Tabla de experiencia por criatura
+├── tabla_exp_incremental.php  # Tabla incremental de experiencia por nivel
+├── csrf_token.php             # Protección CSRF para formularios
+├── test-select2.html          # Prueba de selectores avanzados
 ├── index.php                  # Menú principal
+├── LICENSE                    # Licencia MIT
+├── .gitignore                 # Ignora archivos temporales y de desarrollo
+├── vendor/                    # Dependencias externas (Composer, si aplica)
 └── README.md                  # Este archivo
 ```
 
